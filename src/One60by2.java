@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,16 +20,26 @@ public class One60by2 {
 		/*String s=System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.driver", s+"\\Chrome090615\\chromedriver.exe");
 		ChromeDriver driver=new ChromeDriver();*/
-		FirefoxDriver driver=new FirefoxDriver();
+		/*
+		 * Using below code you can change the profile of firefox browser.
+		to do that first go to run > firefox.exe -P > Set any profile existing or new one 
+		and then give the name in getProfile method shown below.
+		that's it . and you are done
+*/		
+		ProfilesIni prof=new ProfilesIni();
+		FirefoxProfile profile=prof.getProfile("Selenium");
+		FirefoxDriver driver=new FirefoxDriver(profile);//This script is working on firefox only
+		
+		
 		try{
 			driver.manage().window().maximize();
 			driver.get("http://www.160by2.com/Index");
-			driver.findElement(By.id("username")).sendKeys("9426576315");
-			driver.findElement(By.id("password")).sendKeys("08moth42");
+			driver.findElement(By.id("username")).sendKeys(Credentials.username);
+			driver.findElement(By.id("password")).sendKeys(Credentials.password);
 			Thread.sleep(2000);
 			driver.findElementByXPath("//*[@id='loginform']/div/section/div/div[1]/div[3]/div[3]/button").click();
 			System.out.println("logged in");
-			String number[]={"9426576315","8469212091"};
+			String number[]={"8980094822","8469212091"};
 			/*boolean fm=driver.findElementByXPath("//*[@id='by2Frame']").isDisplayed();
 			System.out.println(fm);
 			System.out.println("in the by2frame");*/
