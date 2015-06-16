@@ -53,7 +53,7 @@ public class Way2SMS_Test {
 			System.out.println("Sent sms Clicked ");
 			driver.switchTo().frame(driver.findElementByXPath("//*[@id='frame']"));
 			
-			String numbers[]={"8469212091","9426576315"};///{"8866685998","9998004440"};
+			String numbers[]={"9586880667","9426576315"};///{"8866685998","9998004440"};
 			Random rn=new Random();
 			for(int i=0; i<numbers.length; i++)
 			{
